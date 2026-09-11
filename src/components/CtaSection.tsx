@@ -1,3 +1,5 @@
+import { ContactForm } from "@/components/ContactForm";
+
 export function CtaSection() {
   return (
     <section id="contact" className="cta">
@@ -23,17 +25,7 @@ export function CtaSection() {
         <p>
           依頼するかどうか決まっていなくて大丈夫です。今の状況と、困っていることを教えてください。整理のお手伝いから始められます。
         </p>
-        <a
-          href="#"
-          className="btn btn-primary"
-          style={{ background: "#F4EFE6", color: "#2C4B47", marginTop: 26, display: "inline-flex" }}
-        >
-          お問い合わせフォームへ
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14" />
-            <path d="m13 6 6 6-6 6" />
-          </svg>
-        </a>
+        <ContactForm />
       </div>
     </section>
   );
