@@ -1,0 +1,10 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 8500, "title": "トップページ（PC）" },
+    { "file": "Mobile.dc.html", "x": 1600, "y": 0, "w": 390, "h": 9900, "title": "トップページ（SP）" }
+  ],
+  "annotations": [
+    { "id": "note-main", "x": 0, "y": -260, "w": 1010, "text": "TOPページ全体を「案A（ひと言で伝える）」の方針で構成。10セクション: Header / FV / 01 VALUE / 02 SERVICE / 03 PROCESS / 04 WORKS / 05 ABOUT / 06 FAQ / 07 CONTACT / Footer。\nFVはイラストではなく「仕事の進め方」レール＋マーカー＋切り替わる言葉。\n[ ]で囲んだ箇所は実データ待ちの仮置き（実績の中身・プロフィール・連絡先・運営者情報）。FAQ回答はドラフト。" }
+  ],
+  "launch": { "view": "canvas" }
+}
