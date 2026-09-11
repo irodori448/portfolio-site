@@ -18,6 +18,7 @@ export function Hero() {
               いっしょに考え、
               <br className="lg:hidden" />
               いっしょに、
+              <br className="hidden lg:inline" />
               <span className="mk">形にしていく</span>。
             </h1>
             <p className="reveal d2 mt-4 text-[15px] leading-[1.9] text-body lg:mt-[26px] lg:text-[17px] lg:leading-[1.95]">

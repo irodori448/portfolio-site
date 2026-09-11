@@ -67,13 +67,7 @@ export function FaqSection() {
               strokeWidth="2"
               strokeLinejoin="round"
             />
-            <path
-              d="M31 25a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-6l4 4"
-              fill="#F6DADB"
-              stroke="#3E7471"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
+
             <circle cx="16" cy="16.5" r="1.8" fill="#3E7471" />
             <circle cx="22" cy="16.5" r="1.8" fill="#3E7471" />
             <circle cx="28" cy="16.5" r="1.8" fill="#D88F91" />
