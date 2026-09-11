@@ -113,7 +113,7 @@ export function WorksSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path
               d="M8 15a3 3 0 0 1 3-3h7l3 4h13a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z"
               fill="#E1EAE7"

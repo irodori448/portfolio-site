@@ -52,7 +52,7 @@ export function ProcessSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M7 40c6 0 6-11 12-11s7 11 13 11 8-9 8-9" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" strokeDasharray="1 5" />
             <path d="M34 8v20" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" />
             <path d="M34 9h10l-3 4 3 4H34z" fill="#D88F91" />

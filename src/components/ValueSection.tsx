@@ -76,7 +76,7 @@ export function ValueSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <rect x="9" y="15" width="24" height="30" rx="3" fill="#E1EAE7" stroke="#3E7471" strokeWidth="2" />
             <rect x="15" y="9" width="24" height="30" rx="3" fill="#FCFBF8" stroke="#3E7471" strokeWidth="2" />
             <path d="M20 18h14M20 24h14M20 30h9" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" />
@@ -95,7 +95,7 @@ export function ValueSection() {
         <div className="items-grid">
           {items.map((it) => (
             <div className="item" key={it.title}>
-              <div className="ico">
+              <div className="ico" aria-hidden="true">
                 <svg
                   width="21"
                   height="21"

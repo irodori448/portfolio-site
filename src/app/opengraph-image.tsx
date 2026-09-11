@@ -8,6 +8,7 @@ import { ImageResponse } from "next/og";
 // from being blank in the meantime.
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const alt = "irodori｜いっしょに考え、いっしょに、形にしていく。";
 
 const TITLE = "いっしょに考え、いっしょに、形にしていく。";
 const SUBTITLE = "事業理解から、設計・制作・運用まで伴走する Web パートナー";

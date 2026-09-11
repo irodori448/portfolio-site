@@ -8,7 +8,7 @@ export function CtaSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M43 6 5 21l14 5 4 13 6-11 12-22z" fill="#F4EFE6" stroke="#F4EFE6" strokeWidth="2" strokeLinejoin="round" />
             <path d="M19 26 43 7M19 26v11" stroke="#2F5A55" strokeWidth="2" strokeLinecap="round" />
           </svg>

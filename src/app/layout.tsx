@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 
@@ -23,7 +23,10 @@ export const metadata: Metadata = {
     template: "%s｜irodori",
   },
   description,
+  applicationName: "irodori",
+  authors: [{ url: siteUrl }],
   alternates: { canonical: "/" },
+  formatDetection: { telephone: false },
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -43,10 +46,33 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#F7F5F1",
+  colorScheme: "light",
+};
+
+// Minimal, only-true-facts Organization markup (name / url / description /
+// logo). No address, phone, or social links are added since none are
+// confirmed yet — see docs/portfolio-spec.md and README's TODO list.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "irodori",
+  url: siteUrl,
+  description,
+  logo: `${siteUrl}/icon`,
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja" className={zenKaku.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

@@ -59,7 +59,7 @@ export function FaqSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path
               d="M7 12a3 3 0 0 1 3-3h20a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-6 5v-5a3 3 0 0 1-3-3z"
               fill="#FCFBF8"
@@ -83,7 +83,7 @@ export function FaqSection() {
             <details className="faq" key={f.q}>
               <summary>
                 {f.q}
-                <span className="chev">
+                <span className="chev" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m6 9 6 6 6-6" />
                   </svg>

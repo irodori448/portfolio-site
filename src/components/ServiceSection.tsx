@@ -24,7 +24,7 @@ export function ServiceSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <circle cx="24" cy="24" r="4.5" fill="#D88F91" />
             <path
               d="M24 19V8m0 0-4 4m4-4 4 4M29 24h11m0 0-4-4m4 4-4 4M19.5 28.5 11 37m0 0h6m-6 0v-6"

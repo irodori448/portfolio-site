@@ -6,7 +6,7 @@ export function AboutSection() {
       </span>
       <div className="wrap">
         <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M11 21h19v9a8 8 0 0 1-8 8h-3a8 8 0 0 1-8-8z" fill="#E1EAE7" stroke="#3E7471" strokeWidth="2" />
             <path d="M30 23h3a4 4 0 0 1 0 8h-3" stroke="#3E7471" strokeWidth="2" />
             <path d="M17 17c0-2 2-2 2-4M23 17c0-2 2-2 2-4" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" />
