@@ -9,7 +9,7 @@ const zenKaku = Zen_Kaku_Gothic_New({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "irodori｜事業理解から伴走するWebパートナー";
 const description =
   "irodori は、事業理解から課題整理・設計・制作・運用までを一気通貫で任せられる外部Web担当です。要件が固まっていない段階からご相談いただけます。";
