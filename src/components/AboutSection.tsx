@@ -21,16 +21,13 @@ export function AboutSection() {
         <div className="about">
           <div>
             <p>
-              irodori は、<span className="ph">[お名前]</span> が一人で運営する Web
-              制作の屋号です。制作会社での <span className="ph">[◯]</span>{" "}
-              年の経験をベースに、要件整理からデザイン・実装・運用までを一貫して引き受けています。
+              10年の経験をベースに、要件整理からデザイン・実装・運用までを一貫して引き受けています。
             </p>
             <p>
               得意なのは、要望がまだ言葉になっていない段階からの整理です。「何を作るか」を決める前に、目的とゴール、関係者の認識をそろえることに時間をかけます。そのぶん、着手後の後戻りが少なくなります。
             </p>
             <p>
               制作会社の協力案件から、中小企業の直接のご相談まで対応しています。
-              <span className="ph">[運営者情報・所在地などの詳細ページへのリンク]</span>
             </p>
           </div>
           <div className="facts">
@@ -53,6 +50,6 @@ export function AboutSection() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

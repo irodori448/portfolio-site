@@ -30,10 +30,7 @@ export function Footer() {
           </nav>
         </div>
         <div className="cp">
-          © {new Date().getFullYear()} irodori　/
-          <span className="ph" style={{ background: "#33302a", color: "#c9c1b5" }}>
-            [運営者情報・特商法表記 等]
-          </span>
+          © {new Date().getFullYear()} irodori
         </div>
       </div>
     </footer>

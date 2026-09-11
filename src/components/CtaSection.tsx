@@ -34,13 +34,6 @@ export function CtaSection() {
             <path d="m13 6 6 6-6 6" />
           </svg>
         </a>
-        <p className="sm">
-          {/* TODO: replace with the real contact form URL / mailbox before launch */}
-          <span className="ph" style={{ background: "#3a6a64", color: "#e7f0ee" }}>
-            [メール: hello@example.com]
-          </span>{" "}
-          でも受け付けています。
-        </p>
       </div>
     </section>
   );

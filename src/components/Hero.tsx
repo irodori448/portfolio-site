@@ -12,11 +12,11 @@ export function Hero() {
                 <span>制作、</span>
                 <span>運用、</span>
               </span>
-              <span className="cur" aria-hidden="true" /> ぜんぶ となりで。
+              ぜんぶ となりで。
             </div>
             <h1 className="fvh reveal d1">
               いっしょに考え、
-              <br className="lg:hidden" />
+              <br className="lg:inline" />
               いっしょに、
               <br className="hidden lg:inline" />
               <span className="mk">形にしていく</span>。
