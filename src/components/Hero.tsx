@@ -3,7 +3,7 @@ export function Hero() {
     <section className="bg-cream">
       <div className="mx-auto max-w-[1180px] px-5 pt-[30px] pb-14 lg:px-12 lg:pt-14 lg:pb-[100px]">
         <div className="fv-grid">
-          <div className="fv-text">
+          <div className="fv-textcol">
             <div className="fvkick reveal">
               Webの{" "}
               <span className="cyc">
@@ -26,8 +26,30 @@ export function Hero() {
               <br className="hidden lg:block" />
               相談内容が固まっていなくても大丈夫です。
             </p>
+            <div className="reveal d3 fv-cta-row">
+              <a href="#contact" className="btn btn-primary">
+                まずは相談してみる
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </a>
+              <a href="#process" className="btn btn-ghost">
+                仕事の進め方を見る
+              </a>
+            </div>
           </div>
 
+          <div className="fv-viscol">
           <svg
             className="fvviz reveal d2"
             viewBox="0 0 264 196"
@@ -114,27 +136,6 @@ export function Hero() {
               <span className="tl">STEP 5</span>
             </div>
           </div>
-
-          <div className="fv-cta reveal d3 fv-cta-row">
-            <a href="#contact" className="btn btn-primary">
-              まずは相談してみる
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-            </a>
-            <a href="#process" className="btn btn-ghost">
-              仕事の進め方を見る
-            </a>
           </div>
         </div>
       </div>

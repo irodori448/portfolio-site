@@ -1,7 +1,10 @@
+import { Logomark } from "@/components/Logomark";
+
 export function Header() {
   return (
     <header className="mx-auto flex h-[60px] max-w-[1180px] items-center justify-between px-5 lg:h-[82px] lg:px-12">
-      <div className="text-lg font-bold tracking-[0.04em] text-teal lg:text-xl">
+      <div className="flex items-center gap-2 text-lg font-bold tracking-[0.04em] text-teal lg:text-xl">
+        <Logomark size={22} />
         irodori
       </div>
       <a

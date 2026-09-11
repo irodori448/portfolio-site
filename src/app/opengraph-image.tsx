@@ -45,8 +45,12 @@ export default async function OgImage() {
           fontFamily: "Noto Sans JP",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#D88F91" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div style={{ position: "relative", width: 34, height: 34, display: "flex" }}>
+            <div style={{ position: "absolute", left: 0, top: 2, width: 20, height: 20, borderRadius: "50%", background: "#3E7471", opacity: 0.9 }} />
+            <div style={{ position: "absolute", left: 14, top: 2, width: 20, height: 20, borderRadius: "50%", background: "#D88F91", opacity: 0.9 }} />
+            <div style={{ position: "absolute", left: 7, top: 14, width: 20, height: 20, borderRadius: "50%", background: "#ECB94E", opacity: 0.9 }} />
+          </div>
           <div style={{ fontSize: 40, color: "#3E7471" }}>{WORDMARK}</div>
         </div>
         <div style={{ marginTop: 40, fontSize: 52, color: "#211F1B", lineHeight: 1.4 }}>

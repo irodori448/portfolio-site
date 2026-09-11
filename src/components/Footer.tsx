@@ -1,3 +1,5 @@
+import { Logomark } from "@/components/Logomark";
+
 const navLinks = [
   { href: "#value", label: "提供価値" },
   { href: "#service", label: "できること" },
@@ -14,9 +16,7 @@ export function Footer() {
         <div className="row">
           <div>
             <div className="bd">
-              <span
-                style={{ width: 9, height: 9, borderRadius: "50%", background: "#D88F91", display: "inline-block" }}
-              />
+              <Logomark size={18} />
               irodori
             </div>
             <div className="tl">事業理解から、設計・制作・運用まで伴走する Web パートナー。</div>
