@@ -39,7 +39,7 @@ export function AboutSection() {
               <dt>得意</dt>
               <dd>要件整理 / WordPress / フロントエンド</dd>
               <dt>対応</dt>
-              <dd>制作 / ディレクション / 運用・改善</dd>
+              <dd>制作（デザイン・コーディング） / ディレクション / 運用・改善</dd>
               <dt>打ち合わせ</dt>
               <dd>オンライン可</dd>
               <dt>拠点</dt>
