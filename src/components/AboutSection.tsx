@@ -34,7 +34,7 @@ export function AboutSection() {
             <dl>
               <dt>経歴</dt>
               <dd>
-                <span className="ph">[制作会社◯年 → 独立]</span>
+                大学在学中にクラウドソーシングでWeb制作を始める。その後、個人事業主として活動後、Web制作・保守を専門とする企業に参画。ディレクター・エンジニアとして多くのプロジェクトに従事し、現在10年目。
               </dd>
               <dt>得意</dt>
               <dd>要件整理 / WordPress / フロントエンド</dd>
@@ -44,7 +44,7 @@ export function AboutSection() {
               <dd>オンライン可</dd>
               <dt>拠点</dt>
               <dd>
-                <span className="ph">[所在地]</span>
+                カンボジアでノマドワーカーとして活動中。
               </dd>
             </dl>
           </div>
