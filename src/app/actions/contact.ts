@@ -1,5 +1,6 @@
 "use server";
 
+import { checkBotId } from "botid/server";
 import { Resend } from "resend";
 
 export type ContactFormState = {
@@ -25,6 +26,14 @@ export async function submitContactForm(
   // Honeypot: a field real visitors never see or fill in. Bots that fill
   // every input in the form will trip it; we pretend success and drop it.
   if (String(formData.get("website") ?? "").trim()) {
+    return { status: "success", message: "送信しました。ご連絡ありがとうございます。" };
+  }
+
+  // Vercel BotID: invisible client-side challenge (see instrumentation-client.ts).
+  // Same pretend-success handling as the honeypot above, so bots don't learn
+  // which signal tripped.
+  const { isBot } = await checkBotId();
+  if (isBot) {
     return { status: "success", message: "送信しました。ご連絡ありがとうございます。" };
   }
 
