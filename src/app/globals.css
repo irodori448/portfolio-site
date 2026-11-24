@@ -6258,6 +6258,132 @@ section {
   }
 }
 
+/* Image Modal */
+.image-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 31, 27, 0.9);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.image-modal {
+  position: relative;
+  background: var(--color-card);
+  border-radius: 16px;
+  max-width: 95vw;
+  max-height: 90vh;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(33, 31, 27, 0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.image-modal-close:hover {
+  background: rgba(33, 31, 27, 0.9);
+  transform: scale(1.05);
+}
+.image-modal-close:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.image-modal-header {
+  padding: 20px 24px 12px;
+  text-align: center;
+}
+.image-modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 4px;
+}
+@media (min-width: 1024px) {
+  .image-modal-header h3 {
+    font-size: 20px;
+  }
+}
+.image-modal-company {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.image-modal-content {
+  flex: 1;
+  overflow: auto;
+  padding: 0 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.image-modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px -8px rgba(45, 45, 40, 0.3);
+  object-fit: contain;
+}
+
+.image-modal-footer {
+  padding: 12px 24px 20px;
+  text-align: center;
+}
+.image-modal-hint {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* Reduced motion for modal */
+@media (prefers-reduced-motion: reduce) {
+  .image-modal-overlay {
+    animation: none;
+  }
+  .image-modal {
+    animation: none;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .case-card,
