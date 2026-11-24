@@ -5,12 +5,29 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { works, WorkCategory, categoryLabels, categoryColors, categoryTextColors } from '@/data/works';
 
-const INITIAL_VISIBLE_COUNT = 8;
+// ブレークポイントごとの初期表示件数（各カラム数で割り切れる数）
+// Desktop: 3カラム → 9 (3×3), Tablet: 2カラム → 8 (2×4), Mobile: 1カラム → 6
+function getInitialVisibleCount(): number {
+  if (typeof window === 'undefined') return 9; // SSR時はデスクトップ基準
+  const width = window.innerWidth;
+  if (width >= 1024) return 9;   // 3カラム × 3行
+  if (width >= 640) return 8;    // 2カラム × 4行
+  return 6;                       // 1カラム × 6行
+}
 
 export function WorksSection() {
   const [activeCategory, setActiveCategory] = useState<WorkCategory | 'all'>('all');
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const [visibleCount, setVisibleCount] = useState(() => getInitialVisibleCount());
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
+
+  // 画面リサイズ時に初期表示件数を再計算（カテゴリ切替時もリセットされるためここで補正）
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(getInitialVisibleCount());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const filteredWorks = useMemo(() => {
     if (activeCategory === 'all') return works;
@@ -23,13 +40,22 @@ export function WorksSection() {
 
   const categories: (WorkCategory | 'all')[] = ['all', 'shopify', 'corporate', 'recruit', 'lp'];
 
+  // 追加読み込み時の件数もブレークポイントに合わせる（1行分＝カラム数の倍数）
+  const getLoadMoreCount = () => {
+    if (typeof window === 'undefined') return 3;
+    const width = window.innerWidth;
+    if (width >= 1024) return 3; // 3カラム → 1行分
+    if (width >= 640) return 2;  // 2カラム → 1行分
+    return 1;                     // 1カラム → 1行分
+  };
+
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + INITIAL_VISIBLE_COUNT);
+    setVisibleCount((prev) => prev + getLoadMoreCount());
   };
 
   const handleCategoryChange = (category: WorkCategory | 'all') => {
     setActiveCategory(category);
-    setVisibleCount(INITIAL_VISIBLE_COUNT);
+    setVisibleCount(getInitialVisibleCount());
   };
 
   const openImageModal = useCallback((work: typeof works[0]) => {
