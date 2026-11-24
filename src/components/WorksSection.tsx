@@ -1,111 +1,36 @@
-const cases = [
-  {
-    category: "コーポレートサイト リニューアル",
-    title: "BtoB企業",
-    fields: [
-      {
-        label: "担当範囲",
-        value: "仕様整理・要件定義 / ページ構成・設計 / フロントエンド実装 / WordPress実装"
-      },
-      {
-        label: "課題",
-        value: "旧サイトで掲載していた製品カタログ・取扱説明書などのPDFを、製品ごとに整理してユーザーが探しやすくダウンロードできる仕組みが必要だった"
-      },
-      {
-        label: "進め方",
-        value: "要望をもとに仕様を話し合い、製品情報と各種資料の関係を整理した上で、WordPress上で管理・更新しやすい仕組みとして設計・実装"
-      },
-      {
-        label: "使用技術",
-        value: "WordPress / カスタム投稿タイプ / カスタムフィールド / PHP / JavaScript / HTML / CSS"
-      },
-      {
-        label: "成果",
-        value: "製品ごとにカタログ・取扱説明書・CAD・メンテナンスマニュアルを管理できるダウンロードシステムを構築。1ファイルの個別ダウンロードに加え、最大10ファイルの一括ダウンロードにも対応"
-      },
-      {
-        label: "関わった期間",
-        value: "4ヶ月程度"
-      }
-    ]
-  },
-  {
-    category: "EC構築（Shopify）",
-    title: "日本酒酒蔵",
-    fields: [
-      {
-        label: "担当範囲",
-        value: "仕様整理・要件定義 / デザインを基にした実装 / Shopify構築 / Liquidカスタマイズ / 初期設定 / 商品登録準備 / 公開後の運用サポート"
-      },
-      {
-        label: "課題",
-        value: "公開後もクライアント自身でおすすめ商品や季節ごとのバナー、カテゴリ別ランキングなどを柔軟に更新できるECサイトにしたい"
-      },
-      {
-        label: "進め方",
-        value: "クライアントが公開後に行いたい更新内容を事前にヒアリングし、必要な更新項目と操作方法を整理。既存テーマをLiquidでカスタマイズし、運用しやすい構成として実装"
-      },
-      {
-        label: "使用技術",
-        value: "Shopify / Liquid / HTML / CSS / JavaScript"
-      },
-      {
-        label: "成果",
-        value: "おすすめ商品の入れ替え、季節ごとのバナー追加、カテゴリ別ランキングの設定など、クライアント自身で日常的な更新を行えるECサイトを構築。商品登録や配送設定などの初期設定から、公開後の更新方法までサポート"
-      },
-      {
-        label: "関わった期間",
-        value: "3ヶ月"
-      }
-    ]
-  },
-  {
-    category: "Webサイト改善・LP改修",
-    title: "税理士サイト",
-    fields: [
-      {
-        label: "担当範囲",
-        value: "現状調査・改善提案 / LP改修 / UI・コンテンツ追加 / WordPressテーマ側の実装 / HTML・CSS・JavaScript修正 / アクセシビリティ改善 / SEO・構造化データ対応 / パフォーマンス改善 / セキュリティ設定 / 計測環境確認"
-      },
-      {
-        label: "課題",
-        value: "サービス内容や実績をより分かりやすく伝え、問い合わせにつながりやすいLPへ改善するとともに、表示速度・アクセシビリティ・SEO・セキュリティなどWebサイト全体の品質も向上させたい"
-      },
-      {
-        label: "進め方",
-        value: "既存サイトの構成やLighthouse・PageSpeed Insightsなどの診断結果を確認し、改善箇所を整理。既存デザインやサイト構成を維持しながら、信頼性を高めるコンテンツ追加、CTA改善、アクセシビリティ・パフォーマンス・SEO・セキュリティ面の改修を段階的に実施"
-      },
-      {
-        label: "使用技術",
-        value: "WordPress / PHP / HTML / CSS / JavaScript / WebP / JSON-LD / Google Tag Manager / Microsoft Clarity"
-      },
-      {
-        label: "成果",
-        value: "信頼バー・事例コンテンツなどを追加してLPの訴求力を向上。あわせてアクセシビリティ、セキュリティ、SEO、表示速度を改善し、サイト全体の品質を向上"
-      },
-      {
-        label: "関わった期間",
-        value: "1ヶ月"
-      }
-    ]
-  }
-];
+'use client';
 
-function withPlaceholders(text: string) {
-  // Wraps [bracketed] TODO copy in the .ph highlight used across the design.
-  const parts = text.split(/(\[[^\]]+\])/g);
-  return parts.map((part, i) =>
-    part.startsWith("[") && part.endsWith("]") ? (
-      <span className="ph" key={i}>
-        {part}
-      </span>
-    ) : (
-      <span key={i}>{part}</span>
-    ),
-  );
-}
+import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { works, WorkCategory, categoryLabels, categoryColors, categoryTextColors } from '@/data/works';
+
+const INITIAL_VISIBLE_COUNT = 8;
 
 export function WorksSection() {
+  const [activeCategory, setActiveCategory] = useState<WorkCategory | 'all'>('all');
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+
+  const filteredWorks = useMemo(() => {
+    if (activeCategory === 'all') return works;
+    return works.filter((w) => w.category === activeCategory);
+  }, [activeCategory]);
+
+  const displayedWorks = filteredWorks.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredWorks.length;
+  const remainingCount = filteredWorks.length - visibleCount;
+
+  const categories: (WorkCategory | 'all')[] = ['all', 'shopify', 'corporate', 'recruit', 'lp'];
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + INITIAL_VISIBLE_COUNT);
+  };
+
+  const handleCategoryChange = (category: WorkCategory | 'all') => {
+    setActiveCategory(category);
+    setVisibleCount(INITIAL_VISIBLE_COUNT);
+  };
+
   return (
     <section id="works" className="bg-cream">
       <span className="wm" aria-hidden="true">
@@ -130,23 +55,182 @@ export function WorksSection() {
         </div>
         <h2 className="h2">「何を作ったか」より、「どう関わったか」。</h2>
         <p className="lead">
-          URL やスクリーンショットを並べる代わりに、案件ごとの課題・担当範囲・進め方を記録しています。公開できない案件も、概要と役割で紹介します。
+          実際の企業案件で、課題整理から設計・制作・運用までどう関わってきたかを紹介します。
         </p>
-        <div className="cases">
-          {cases.map((c) => (
-            <div className="case" key={c.category}>
-              <div className="ct">{c.category}</div>
-              <h3>{withPlaceholders(c.title)}</h3>
-              <div className="cg">
-                {c.fields.map((f) => (
-                  <div key={f.label}>
-                    <h4>{f.label}</h4>
-                    <p>{withPlaceholders(f.value)}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+
+        {/* Category Filter */}
+        <div className="category-filter" role="group" aria-label="実績カテゴリで絞り込み">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`category-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => handleCategoryChange(cat)}
+              aria-pressed={activeCategory === cat}
+              style={{
+                backgroundColor: cat === 'all' ? 'var(--color-teal)' : categoryColors[cat as WorkCategory],
+                color: cat === 'all' ? 'white' : categoryTextColors[cat as WorkCategory],
+                borderColor: cat === 'all' ? 'var(--color-teal)' : categoryColors[cat as WorkCategory],
+              }}
+            >
+              {cat === 'all' ? 'すべて' : categoryLabels[cat as WorkCategory]}
+            </button>
           ))}
+        </div>
+
+        {/* Works Grid */}
+        <div className="cases-list" role="list">
+          {displayedWorks.map((work, index) => (
+            <article
+              key={work.id}
+              className="case-card"
+              style={{ animationDelay: `${index * 80}ms` }}
+              role="listitem"
+            >
+              <div className="case-image-wrapper">
+                <Image
+                  src={work.imagePath}
+                  alt={work.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="case-image"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                />
+                <div className="case-image-overlay">
+                  <span className="view-site-label">サイトを見る</span>
+                </div>
+              </div>
+
+              <div className="case-header">
+                <div className="case-meta">
+                  <span
+                    className="case-category"
+                    style={{
+                      backgroundColor: categoryColors[work.category],
+                      color: categoryTextColors[work.category],
+                    }}
+                  >
+                    {categoryLabels[work.category]}
+                  </span>
+                  {work.isDuplicateCompany && (
+                    <span className="case-duplicate-badge" aria-label="同一企業の別サイト">
+                      同一企業
+                    </span>
+                  )}
+                </div>
+                <h3 className="case-title">
+                  <Link
+                    href={work.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="case-title-link"
+                    aria-label={`${work.siteName} の公式サイトを開く（新しいタブ）`}
+                  >
+                    {work.siteName}
+                    <svg
+                      className="external-link-icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </Link>
+                </h3>
+                <p className="case-company">{work.company}</p>
+              </div>
+
+              <div className="case-body">
+                <div className="case-section">
+                  <h4>担当範囲</h4>
+                  <ul className="case-scope-list">
+                    {work.scope.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="case-section">
+                  <h4>関わった期間</h4>
+                  <p className="case-period">{work.period}</p>
+                </div>
+                {work.description && (
+                  <div className="case-section case-description">
+                    <h4>概要</h4>
+                    <p>{work.description}</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="case-footer">
+                <a
+                  href={work.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="case-view-link"
+                  aria-label={`${work.siteName} の公式サイトを開く（新しいタブ）`}
+                >
+                  公式サイトを見る
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Load More Button */}
+        {hasMore && (
+          <div className="load-more-wrapper">
+            <button
+              className="load-more-btn"
+              onClick={handleLoadMore}
+              aria-label={`${remainingCount} 件さらに表示`}
+            >
+              さらに {remainingCount} 件見る
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        )}
+
+        {/* Category Summary */}
+        <div className="category-summary" aria-live="polite">
+          <p>
+            {activeCategory === 'all'
+              ? `全 ${works.length} 件の実績を掲載しています`
+              : `"${categoryLabels[activeCategory]}" の実績：${filteredWorks.length} 件`}
+          </p>
         </div>
       </div>
     </section>

@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         hostname: "images.microcms-assets.io",
       },
     ],
+    // Allow SVG for placeholder images (will be replaced with actual JPG/PNG screenshots)
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 

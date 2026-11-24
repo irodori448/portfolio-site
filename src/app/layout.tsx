@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Zen_Kaku_Gothic_New } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const zenKaku = Zen_Kaku_Gothic_New({
+const notoSansJP = Noto_Sans_JP({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-zen-kaku",
+  variable: "--font-noto-sans-jp",
   display: "swap",
 });
-
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "irodori｜事業理解から伴走するWebパートナー";
 const description =
@@ -65,7 +64,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ja" className={zenKaku.variable}>
+    <html lang="ja" className={notoSansJP.variable}>
       <body className="font-sans">
         <script
           type="application/ld+json"
