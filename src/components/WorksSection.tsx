@@ -30,8 +30,9 @@ export function WorksSection() {
   }, []);
 
   const filteredWorks = useMemo(() => {
-    if (activeCategory === 'all') return works;
-    return works.filter((w) => w.category === activeCategory);
+    const base = activeCategory === 'all' ? works : works.filter((w) => w.category === activeCategory);
+    // order でソート（未指定は大きい値として末尾へ）
+    return [...base].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
   }, [activeCategory]);
 
   const displayedWorks = filteredWorks.slice(0, visibleCount);

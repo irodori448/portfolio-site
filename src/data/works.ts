@@ -13,6 +13,7 @@ export interface Work {
   description?: string;
   isDuplicateCompany?: boolean;
   duplicateGroup?: string;
+  order?: number; // カテゴリ内での表示順（小さい順。未指定は配列順）
 }
 
 export const works: Work[] = [
@@ -28,6 +29,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'カスタム投稿タイプ', 'カスタムフィールド', 'テーマカスタマイズ', '製品カタログ管理システム'],
     period: '4ヶ月',
     description: '計装機器メーカーのコーポレートサイトをWordPressでリニューアル。製品カタログ・取扱説明書・CADデータなどを製品ごとに管理・ダウンロードできるシステムを構築。',
+    order: 1,
   },
   {
     id: 'yamaguchi-hino',
@@ -40,6 +42,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'ディレクション業務',],
     period: '3ヶ月',
     description: '日野自動車ディーラーのコーポレートサイトをWordPressで構築。取扱車両や拠点情報を管理しやすい仕組みを実装。',
+    order: 2,
   },
   {
     id: 'fujitechno',
@@ -52,6 +55,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'アニメーション作成'],
     period: '3ヶ月',
     description: '精密機器メーカーのコーポレートサイトをWordPressで構築。製品カタログや技術資料を製品ごとに管理・ダウンロードできる仕組みを実装。',
+    order: 3,
   },
 
   {
@@ -67,6 +71,7 @@ export const works: Work[] = [
     description: '医療機器卸売業のコーポレートサイトをWordPressで構築。ECサイトとデザインを統一し、取扱製品や会社情報を管理しやすい仕組みを実装。',
     isDuplicateCompany: true,
     duplicateGroup: 'heiwairyo',
+    order: 4,
   },
   {
     id: 'densyo',
@@ -79,6 +84,7 @@ export const works: Work[] = [
     scope: ['WordPress構築'],
     period: '2ヶ月',
     description: '電気工事会社のコーポレートサイトをWordPressで構築。施工実績や事業内容を分かりやすく掲載できる仕組みを実装。',
+    order: 11,
   },
   {
     id: 'yama-sys',
@@ -91,6 +97,7 @@ export const works: Work[] = [
     scope: ['WordPress構築'],
     period: '3ヶ月',
     description: 'システムインテグレーターのコーポレートサイトをWordPressで構築。提供ソリューションや導入事例をカテゴリ別に管理できる仕組みを実装。',
+    order: 12,
   },
   {
     id: 'hamato',
@@ -103,6 +110,7 @@ export const works: Work[] = [
     scope: ['WordPress構築'],
     period: '2ヶ月',
     description: '食品卸売業のコーポレートサイトをWordPressで構築。取扱商品や店舗情報を更新しやすい仕組みを実装。',
+    order: 7,
   },
   {
     id: 'ryuuto-corp',
@@ -117,6 +125,7 @@ export const works: Work[] = [
     description: 'フィットネス事業等を展開する企業のコーポレートサイトをWordPressで構築。グループサイトとの連携も考慮した設計。',
     isDuplicateCompany: true,
     duplicateGroup: 'ryuuto',
+    order: 8,
   },
 
 
@@ -131,6 +140,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'TCDテーマカスタマイズ', '事業紹介', '施工実績管理'],
     period: '2ヶ月',
     description: '建設業のコーポレートサイトをWordPressで構築。施工実績をカテゴリ・エリア別に管理・検索できる仕組みを実装。',
+    order: 9,
   },
   {
     id: 'itoishoukai',
@@ -143,6 +153,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'TCDテーマカスタマイズ', '事業紹介'],
     period: '2ヶ月',
     description: '繊維商社のコーポレートサイトをWordPressで構築。取扱商品や会社情報を更新しやすい仕組みを実装。',
+    order: 10,
   },
 
 
@@ -158,6 +169,7 @@ export const works: Work[] = [
     scope: ['Shopify構築', 'Liquidカスタマイズ', 'テーマカスタマイズ', '商品登録準備', '初期設定', '公開後の運用サポート'],
     period: '3ヶ月',
     description: '日本酒蔵元のECサイトをShopifyで構築。クライアント自身でおすすめ商品や季節ごとのバナー、カテゴリ別ランキングなどを柔軟に更新できる仕組みを実装。',
+    order: 5,
   },
   {
     id: 'tofumeat',
@@ -170,6 +182,7 @@ export const works: Work[] = [
     scope: ['Shopify構築', 'Liquidカスタマイズ', 'テーマカスタマイズ', '商品登録', '初期設定', '公開後の運用サポート'],
     period: '3ヶ月',
     description: '植物性肉「TOFU MEAT」のECサイトをShopifyで構築。定期購入機能やギフト対応など、食品EC特有の要件に対応。',
+    order: 6,
   },
   {
     id: 'noichi',
@@ -182,6 +195,7 @@ export const works: Work[] = [
     scope: ['Shopify構築', 'Liquidカスタマイズ', 'デザイン実装', '商品登録', '初期設定'],
     period: '2ヶ月',
     description: '雑貨店のECサイトをShopifyで構築。実店舗の雰囲気をWebでも表現できるようデザインをカスタマイズ。',
+    order: 13,
   },
   {
     id: 'heiwairyo-ec',
@@ -196,6 +210,7 @@ export const works: Work[] = [
     description: '医療機器卸売業のECサイトをShopifyで構築。医療機器販売に必要な法的要件や会員価格表示、卸売機能などを実装。',
     isDuplicateCompany: true,
     duplicateGroup: 'heiwairyo',
+    order: 14,
   },
   {
     id: 'mikawa',
@@ -208,6 +223,7 @@ export const works: Work[] = [
     scope: ['Shopify構築', 'Liquidカスタマイズ', 'テーマカスタマイズ', '商品登録', '初期設定', '運用サポート'],
     period: '2ヶ月',
     description: '佃煮・惣菜製造販売会社のECサイトをShopifyで構築。ギフト対応や熨斗対応、定期便機能などを実装。',
+    order: 15,
   },
 
 
@@ -223,6 +239,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'ディレクション業務', '職種別採用情報管理', 'エントリーフォーム連携', '病院紹介コンテンツ'],
     period: '2ヶ月',
     description: '病院の採用サイトをWordPressで構築。医師・看護師・コメディカルなど職種別の採用情報を管理し、エントリーへ誘導できる仕組みを実装。',
+    order: 16,
   },
   {
     id: 'takidoji',
@@ -235,6 +252,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', '園の紹介', '採用情報', 'PDFアップロードシステム構築'],
     period: '2ヶ月',
     description: '認定こども園のWebサイトをWordPressで構築。園の特色や年間行事、採用情報を保護者・求職者双方に分かりやすく伝える設計。',
+    order: 17,
   },
   {
     id: 'kunren-east',
@@ -247,6 +265,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'カスタム投稿タイプ', 'カスタムフィールド', 'テーマカスタマイズ', '学科紹介', '入校案内', '就職実績管理', '施設紹介'],
     period: '3ヶ月',
     description: '職業訓練校のWebサイトをWordPressで構築。学科紹介や入校案内、就職実績など、入校希望者が知りたい情報を体系的に整理・掲載。',
+    order: 18,
   },
   {
     id: 'kunren-west',
@@ -259,6 +278,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'カスタム投稿タイプ', 'カスタムフィールド', 'テーマカスタマイズ', '学科紹介', '入校案内', '就職実績管理', '施設紹介'],
     period: '3ヶ月',
     description: '職業訓練校のWebサイトをWordPressで構築。東部校と統一感を持たせつつ、各校の特色を出せる設計。',
+    order: 19,
   },
 
   // LP・サービスサイト
@@ -275,6 +295,7 @@ export const works: Work[] = [
     description: 'セミパーソナルジムのサービスサイトをWordPressで構築。体験予約への導線を強化し、店舗ごとの情報管理を可能にした設計。',
     isDuplicateCompany: true,
     duplicateGroup: 'ryuuto',
+    order: 20,
   },
   {
     id: 'atc-fitness',
@@ -287,6 +308,7 @@ export const works: Work[] = [
     scope: ['WordPress構築'],
     period: '2ヶ月',
     description: 'フィットネスクラブのサービスサイトをWordPressで構築。施設の魅力を伝えるビジュアルと、体験予約へのスムーズな導線を設計。',
+    order: 21,
   },
   {
     id: 'yamamoto-futon',
@@ -299,6 +321,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'ディレクション業務', '商品紹介'],
     period: '1.5ヶ月',
     description: 'ふとん専門店のサービスサイトをWordPressで構築。オーダーメイド寝具の相談予約へつなげる導線と、商品知識コンテンツを充実。',
+    order: 22,
   },
   {
     id: 'enjoy65',
@@ -311,6 +334,7 @@ export const works: Work[] = [
     scope: ['WordPress構築', 'GSAP導入', 'テーマカスタマイズ', 'コラム管理'],
     period: '2ヶ月',
     description: 'シニア向けライフプランサービスのサイトをWordPressで構築。GSAPを導入。',
+    order: 23,
   },
 ];
 
