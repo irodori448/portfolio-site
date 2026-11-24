@@ -95,9 +95,6 @@ export function WorksSection() {
                   className="case-image"
                   loading={index < 3 ? 'eager' : 'lazy'}
                 />
-                <div className="case-image-overlay">
-                  <span className="view-site-label">サイトを見る</span>
-                </div>
               </div>
 
               <div className="case-header">
