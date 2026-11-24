@@ -7,7 +7,10 @@ import * as path from 'path';
 // ============================================
 
 // 実績データ（works.ts と同期）
-const works = [
+// PlaywrightのwaitUntil型
+type WaitUntil = 'load' | 'domcontentloaded' | 'networkidle' | 'commit';
+
+const works: Array<{ id: string; url: string; waitFor: WaitUntil }> = [
   // Shopify / EC
   { id: 'nakashimaya', url: 'https://ec.nakashimaya1823.jp/', waitFor: 'networkidle' },
   { id: 'tofumeat', url: 'https://tofu-meat.com/', waitFor: 'networkidle' },
@@ -48,6 +51,7 @@ const DEVICE_SCALE_FACTOR = 2; // 高解像度（Retina相当）
 const TIMEOUT = 60000; // 60秒
 const SCROLL_WAIT = 2000; // スクロール後の待機時間
 const CONCURRENCY = 3; // 同時実行数（サーバー負荷軽減）
+const IMAGE_QUALITY = 80; // WebP品質（0-100）
 
 // ============================================
 // ユーティリティ
@@ -170,7 +174,7 @@ async function captureScreenshot(browser: Browser, work: typeof works[0]) {
   try {
     // ページ読み込み
     await page.goto(url, {
-      waitUntil: waitFor as any,
+      waitUntil: waitFor,
       timeout: TIMEOUT,
     });
 
@@ -193,19 +197,22 @@ async function captureScreenshot(browser: Browser, work: typeof works[0]) {
     // 追加待機
     await sleep(SCROLL_WAIT);
 
-    // スクリーンショット撮影
+    // 出力パスを .webp に変更
+    const outputPathWebp = outputPath.replace(/\.jpg$/, '.webp');
+
+    // スクリーンショット撮影（WebP形式）
     await page.screenshot({
-      path: outputPath,
+      path: outputPathWebp,
       fullPage: true,
-      type: 'jpeg',
-      quality: 85,
+      type: 'webp',
+      quality: IMAGE_QUALITY,
     });
 
     // ファイルサイズ確認
-    const stats = fs.statSync(outputPath);
+    const stats = fs.statSync(outputPathWebp);
     const sizeKB = Math.round(stats.size / 1024);
 
-    console.log(`  ✅ 完了: ${outputPath} (${sizeKB} KB)`);
+    console.log(`  ✅ 完了: ${outputPathWebp} (${sizeKB} KB)`);
     return { id, success: true, sizeKB };
 
   } catch (error) {
@@ -250,7 +257,7 @@ async function main() {
 
   // 並列実行（キュー方式）
   const queue = [...works];
-  const running: Promise<any>[] = [];
+  const running: Promise<void>[] = [];
 
   const processNext = async () => {
     if (queue.length === 0) return;
