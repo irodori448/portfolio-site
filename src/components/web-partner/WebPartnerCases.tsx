@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
 const cases = [
   {
     company: "昭和工業株式会社",
@@ -7,6 +12,7 @@ const cases = [
     result: "製品ごとにカタログ・取扱説明書・CAD・メンテナンスマニュアルを管理できるダウンロードシステムを構築。1ファイルの個別ダウンロードに加え、最大10ファイルの一括ダウンロードにも対応。担当者が管理画面から資料を追加・更新できる運用体制を整えた。",
     tags: ["WordPress", "カスタム投稿タイプ", "カスタムフィールド", "PHP", "JavaScript"],
     period: "約4ヶ月",
+    image: "/images/works/showa-kk.webp",
   },
   {
     company: "中島屋（Shopify）",
@@ -16,6 +22,7 @@ const cases = [
     result: "おすすめ商品の入れ替え、季節ごとのバナー追加、カテゴリ別ランキングの設定など、クライアント自身で日常的な更新を行えるECサイトを構築。商品登録や配送設定などの初期設定から、公開後の更新方法まで約1年間継続してサポート。",
     tags: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     period: "構築：約3ヶ月 / 運用サポート：約1年継続中",
+    image: "/images/works/nakashimaya.webp",
   },
   {
     company: "WordPressサイトのマルウェア復旧",
@@ -25,65 +32,88 @@ const cases = [
     result: "マルウェア感染サイトの調査・復旧を完了し、正常な状態で公開を再開。不具合の修正とサーバー・WordPressの対応を行い、復旧後の安定運用に向けたセキュリティ対策を講じた。制作だけでなく、既存サイトのトラブルにも対応できることを実証。",
     tags: ["WordPress", "セキュリティ", "マルウェア除去", "サーバー設定", "PHP"],
     period: "調査・復旧：約2週間 / 事後対応含む",
+    image: "/images/works/densyo.webp",
   },
 ];
 
 export function WebPartnerCases() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -100px 0px" }
+    );
+    const el = document.getElementById("wp-cases");
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="cases" className="bg-band">
-      <span className="wm" aria-hidden="true">
-        05
-      </span>
-      <div className="wrap">
-        <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path
-              d="M8 15a3 3 0 0 1 3-3h7l3 4h13a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z"
-              fill="#E1EAE7"
-              stroke="#3E7471"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-            <path d="M26 17v13l4.5-3.2L35 30V17z" fill="#D88F91" />
-          </svg>
+    <section id="wp-cases" className="wp-section" aria-labelledby="wp-cases-heading">
+      <div className="wp-container">
+        <div style={{ maxWidth: "720px" }}>
+          <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+            Cases
+          </p>
+          <h2
+            id="wp-cases-heading"
+            className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            支援事例
+          </h2>
+          <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            既存ポートフォリオの実績から、外部Web担当として継続的に関わった事例を紹介します。<br />
+            「何を作ったか」より、「どう関わり、何を実現したか」を伝えます。
+          </p>
         </div>
-        <div className="kicker">
-          <span className="num">05</span>
-          <span className="en">CASES</span>
-        </div>
-        <h2 className="h2">支援事例</h2>
-        <p className="lead">
-          既存ポートフォリオの実績から、外部Web担当として継続的に関わった事例を紹介します。
-          「何を作ったか」より、「どう関わり、何を実現したか」を伝えます。
-        </p>
-        <div className="cases-list">
+
+        <div className="wp-grid wp-grid-3" style={{ marginTop: "60px", gap: "32px" }}>
           {cases.map((c, i) => (
-            <article className="case-card reveal" key={c.company} style={{ animationDelay: `${0.07 * (i + 1)}s` }}>
-              <div className="case-header">
-                <div className="case-meta">
-                  <span className="case-category">{c.category}</span>
-                  <span className="case-period">{c.period}</span>
-                </div>
-                <h3>{c.company}</h3>
+            <article
+              key={c.company}
+              className={`wp-case wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${300 + i * 100}ms` }}
+            >
+              <div className="wp-case-image">
+                <Image
+                  src={c.image}
+                  alt={`${c.company} のサイト画面`}
+                  fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  className="wp-aspect-4-3"
+                />
               </div>
-              <div className="case-body">
-                <div className="case-section">
-                  <h4>依頼前の課題</h4>
-                  <p>{c.challenge}</p>
+              <div className="wp-case-content">
+                <div className="wp-case-meta">
+                  <span className="wp-case-category">{c.category}</span>
+                  <span className="wp-case-period">{c.period}</span>
                 </div>
-                <div className="case-section">
-                  <h4>対応した内容</h4>
-                  <p>{c.solution}</p>
+                <h3 className="wp-case-title">{c.company}</h3>
+
+                <div className="wp-case-section">
+                  <h4 className="wp-case-section-title">依頼前の課題</h4>
+                  <p className="wp-case-section-text">{c.challenge}</p>
                 </div>
-                <div className="case-section">
-                  <h4>対応によって実現したこと</h4>
-                  <p>{c.result}</p>
+                <div className="wp-case-section">
+                  <h4 className="wp-case-section-title">対応した内容</h4>
+                  <p className="wp-case-section-text">{c.solution}</p>
                 </div>
-              </div>
-              <div className="case-tags">
-                {c.tags.map((tag) => (
-                  <span className="tag" key={tag}>{tag}</span>
-                ))}
+                <div className="wp-case-section">
+                  <h4 className="wp-case-section-title">対応によって実現したこと</h4>
+                  <p className="wp-case-section-text">{c.result}</p>
+                </div>
+
+                <div className="wp-case-tags">
+                  {c.tags.map((tag) => (
+                    <span key={tag} className="wp-case-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}

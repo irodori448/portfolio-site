@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const benefits = [
   {
     number: "01",
@@ -22,53 +26,51 @@ const benefits = [
 ];
 
 export function WebPartnerBenefits() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -100px 0px" }
+    );
+    const el = document.getElementById("wp-benefits");
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="benefits" className="bg-cream">
-      <span className="wm" aria-hidden="true">
-        04
-      </span>
-      <div className="wrap">
-        <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path
-              d="M20 44 L24 36 L28 44"
-              stroke="#3E7471"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M12 36 L24 24 L36 36"
-              stroke="#3E7471"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M4 28 L24 16 L44 28"
-              stroke="#3E7471"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="24" cy="16" r="5" fill="#D88F91" />
-          </svg>
+    <section id="wp-benefits" className="wp-section" aria-labelledby="wp-benefits-heading">
+      <div className="wp-container">
+        <div style={{ maxWidth: "720px" }}>
+          <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+            Benefits
+          </p>
+          <h2
+            id="wp-benefits-heading"
+            className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            irodoriに依頼する<br />
+            4つのメリット
+          </h2>
+          <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            単なる制作業者ではなく、Web領域のパートナーとして選ばれる理由があります。
+          </p>
         </div>
-        <div className="kicker">
-          <span className="num">04</span>
-          <span className="en">BENEFITS</span>
-        </div>
-        <h2 className="h2">irodoriに依頼するメリット</h2>
-        <p className="lead">
-          単なる制作業者ではなく、Web領域のパートナーとして選ばれる理由があります。
-        </p>
-        <div className="benefits-grid">
+
+        <div className="wp-grid wp-grid-2" style={{ marginTop: "60px", gap: "32px" }}>
           {benefits.map((b, i) => (
-            <div className="benefit-card reveal" key={b.number} style={{ animationDelay: `${0.07 * (i + 1)}s` }}>
-              <div className="benefit-number">{b.number}</div>
-              <h3>{b.title}</h3>
-              <p>{b.desc}</p>
-            </div>
+            <article
+              key={b.number}
+              className={`wp-benefit wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${300 + i * 100}ms` }}
+            >
+              <p className="wp-benefit-number">{b.number}</p>
+              <h3 className="wp-benefit-title">{b.title}</h3>
+              <p className="wp-benefit-desc">{b.desc}</p>
+            </article>
           ))}
         </div>
       </div>

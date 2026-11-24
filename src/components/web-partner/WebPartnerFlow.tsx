@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const flowSteps = [
   {
     number: "01",
@@ -26,51 +30,60 @@ const flowSteps = [
   },
 ];
 
-function FlowConnector() {
-  return (
-    <div className="flow-connector" aria-hidden="true">
-      <svg width="22" height="30" viewBox="0 0 22 30" fill="none" stroke="#C6BEAD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M11 2v22" strokeDasharray="1 4" />
-        <path d="m4 19 7 8 7-8" />
-      </svg>
-    </div>
-  );
-}
-
 export function WebPartnerFlow() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -100px 0px" }
+    );
+    const el = document.getElementById("wp-flow");
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="flow" className="bg-cream">
-      <span className="wm" aria-hidden="true">
-        06
-      </span>
-      <div className="wrap">
-        <div className="motif">
-          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path d="M7 40c6 0 6-11 12-11s7 11 13 11 8-9 8-9" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" strokeDasharray="1 5" />
-            <path d="M34 8v20" stroke="#3E7471" strokeWidth="2" strokeLinecap="round" />
-            <path d="M34 9h10l-3 4 3 4H34z" fill="#D88F91" />
-            <circle cx="7" cy="40" r="2.6" fill="#3E7471" />
-          </svg>
-        </div>
-        <div className="kicker">
-          <span className="num">06</span>
-          <span className="en">FLOW</span>
-        </div>
-        <h2 className="h2">ご依頼の流れ</h2>
-        <p className="lead">
-          最初から具体的な依頼内容が決まっていなくても相談できます。現状の整理から一緒に始められます。
-        </p>
-        <div className="flow-steps">
-          {flowSteps.map((step, i) => (
-            <div className="flow-step reveal" key={step.number} style={{ animationDelay: `${0.07 * (i + 1)}s` }}>
-              <div className="flow-step-header">
-                <span className="flow-step-number">{step.number}</span>
-                <h3>{step.title}</h3>
-              </div>
-              <p>{step.desc}</p>
-              {i < flowSteps.length - 1 && <FlowConnector />}
+    <section id="wp-flow" className="wp-section" aria-labelledby="wp-flow-heading">
+      <div className="wp-container">
+        <div className="wp-grid wp-grid-asym">
+          <div>
+            <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+              Flow
+            </p>
+            <h2
+              id="wp-flow-heading"
+              className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: "100ms" }}
+            >
+              ご依頼の流れ
+            </h2>
+            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+              最初から具体的な依頼内容が決まっていなくても相談できます。<br />
+              現状の整理から一緒に始められます。
+            </p>
+          </div>
+
+          <div>
+            <div className="wp-steps" role="list">
+              {flowSteps.map((step, i) => (
+                <div
+                  key={step.number}
+                  className={`wp-step wp-fade-up ${visible ? "is-visible" : ""}`}
+                  style={{ transitionDelay: `${300 + i * 100}ms` }}
+                  role="listitem"
+                >
+                  <span className="wp-step-number" aria-hidden="true">
+                    {step.number}
+                  </span>
+                  <h3 className="wp-step-title">{step.title}</h3>
+                  <p className="wp-step-desc">{step.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

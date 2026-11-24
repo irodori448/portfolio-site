@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F7F5F1",
+  themeColor: "#FAF9F6",
   colorScheme: "light",
 };
 
@@ -50,17 +50,19 @@ export default function WebPartnerPage() {
   return (
     <>
       <Header />
-      <main>
-        <WebPartnerHero />
-        <WebPartnerProblems />
-        <WebPartnerAbout />
-        <WebPartnerServices />
-        <WebPartnerBenefits />
-        <WebPartnerCases />
-        <WebPartnerFlow />
-        <WebPartnerProfile />
-        <WebPartnerContact />
-      </main>
+      <div className="wp-page">
+        <main>
+          <WebPartnerHero />
+          <WebPartnerProblems />
+          <WebPartnerAbout />
+          <WebPartnerServices />
+          <WebPartnerBenefits />
+          <WebPartnerCases />
+          <WebPartnerFlow />
+          <WebPartnerProfile />
+          <WebPartnerContact />
+        </main>
+      </div>
       <Footer />
     </>
   );
