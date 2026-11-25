@@ -2,6 +2,29 @@
 
 import { useEffect, useState } from "react";
 
+const facts = [
+  {
+    label: "経歴",
+    value: "大学在学中にクラウドソーシングでWeb制作を始める。その後、個人事業主として活動後、Web制作・保守を専門とする企業に参画。ディレクター・エンジニアとして多くのプロジェクトに従事し、現在10年目。",
+  },
+  {
+    label: "得意領域",
+    value: "要件整理 / WordPress / Shopify / フロントエンド実装 / 運用・改善",
+  },
+  {
+    label: "対応範囲",
+    value: "制作（設計・デザイン・コーディング） / ディレクション / 運用・改善・保守",
+  },
+  {
+    label: "打ち合わせ",
+    value: "オンライン可（Zoom、Google Meet 等）",
+  },
+  {
+    label: "拠点",
+    value: "カンボジア（ノマドワーカーとして活動中）",
+  },
+];
+
 export function WebPartnerProfile() {
   const [visible, setVisible] = useState(false);
 
@@ -51,51 +74,61 @@ export function WebPartnerProfile() {
           </div>
 
           <div className={`wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms" }}>
-            <div
-              className="wp-image-wrapper wp-aspect-square"
-              style={{ maxWidth: "320px", margin: "0 auto" }}
-            >
-              <svg
-                width="120"
-                height="120"
-                viewBox="0 0 120 120"
-                fill="none"
-                stroke="var(--wp-accent)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                style={{ opacity: 0.4 }}
-              >
-                <circle cx="60" cy="40" r="20" />
-                <path d="M60 70c0-22 18-40 40-40" fill="none" strokeWidth="2.5" opacity="0.3" />
-                <path d="M60 70c0-22-18-40-40-40" fill="none" strokeWidth="2.5" opacity="0.3" />
+            <div className="wp-illustration" aria-hidden="true" style={{ marginBottom: "48px", display: "flex", justifyContent: "center" }}>
+              <svg viewBox="0 0 320 320" fill="none" stroke="#1A2340" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.15, maxWidth: "100%", height: "auto" }}>
+                {/* Portrait illustration - person at desk with laptop */}
+                <circle cx="160" cy="70" r="50" fill="none" stroke="#C2A265" strokeWidth="2" />
+                <path d="M160 120v70" stroke="#1A2340" strokeWidth="2" />
+                <path d="M110 155h100" stroke="#1A2340" strokeWidth="2" />
+                <path d="M160 190l-30 45M160 190l30 45" stroke="#1A2340" strokeWidth="2" />
+
+                {/* Laptop on desk */}
+                <rect x="60" y="130" width="200" height="100" rx="8" fill="#1A2340" stroke="#3D4A6B" strokeWidth="1.5" />
+                <rect x="70" y="140" width="180" height="75" rx="4" fill="#E8EDEB" stroke="none" />
+                <path d="M85 165h150" stroke="#3E7471" strokeWidth="1.5" opacity="0.5" />
+                <path d="M85 180h120" stroke="#3E7471" strokeWidth="1" opacity="0.3" />
+                <path d="M85 195h100" stroke="#3E7471" strokeWidth="1" opacity="0.2" />
+
+                {/* Coffee cup */}
+                <path d="M280 145c0 6 5 11 11 11h20c6 0 11-5 11-11v-30c0-6-5-11-11-11h-20c-6 0-11 5-11 11v30z" fill="#F5EEDC" stroke="#C2A265" strokeWidth="1" />
+                <path d="M311 145c0 6 5 11 11 11h8c6 0 11-5 11-11v-30c0-6-5-11-11-11h-8c-6 0-11 5-11 11v30z" fill="none" stroke="#C2A265" strokeWidth="1" />
+                <path d="M319 115h11" stroke="#C2A265" strokeWidth="1.5" />
+
+                {/* Notebook */}
+                <rect x="40" y="150" width="100" height="70" rx="4" fill="#FFF" stroke="#D4C9B8" strokeWidth="1" />
+                <path d="M50 160h70" stroke="#3E7471" strokeWidth="1" opacity="0.4" />
+                <path d="M50 175h85" stroke="#3E7471" strokeWidth="0.5" opacity="0.2" />
+                <path d="M50 190h60" stroke="#3E7471" strokeWidth="0.5" opacity="0.2" />
+                <path d="M50 205h80" stroke="#3E7471" strokeWidth="0.5" opacity="0.2" />
+
+                {/* Speech bubbles indicating communication */}
+                <path d="M160 40c0-8 6-14 14-14h30c8 0 14 6 14 14v15c0 8-6 14-14 14h-30c-8 0-14-6-14-14v-15z" fill="#F5EEDC" stroke="#C2A265" strokeWidth="1" />
+                <path d="M174 45h12M174 52h18" stroke="#3E7471" strokeWidth="1" opacity="0.5" />
+                <path d="M169 60l5 5 5-5" stroke="#C2A265" strokeWidth="1.5" fill="none" />
+
+                <path d="M300 80c0-8 6-14 14-14h25c8 0 14 6 14 14v15c0 8-6 14-14 14h-25c-8 0-14-6-14-14v-15z" fill="#F5EEDC" stroke="#C2A265" strokeWidth="1" />
+                <path d="M314 85h10M314 92h15" stroke="#3E7471" strokeWidth="1" opacity="0.5" />
+                <path d="M309 97l5 5 5-5" stroke="#C2A265" strokeWidth="1.5" fill="none" />
               </svg>
             </div>
 
-            <div className="wp-facts" style={{ marginTop: "48px" }}>
-              <div className="wp-fact">
-                <p className="wp-fact-label">経歴</p>
-                <p className="wp-fact-value">
-                  大学在学中にクラウドソーシングでWeb制作を始める。その後、個人事業主として活動後、Web制作・保守を専門とする企業に参画。ディレクター・エンジニアとして多くのプロジェクトに従事し、現在10年目。
-                </p>
-              </div>
-              <div className="wp-fact">
-                <p className="wp-fact-label">得意領域</p>
-                <p className="wp-fact-value">要件整理 / WordPress / Shopify / フロントエンド実装 / 運用・改善</p>
-              </div>
-              <div className="wp-fact">
-                <p className="wp-fact-label">対応範囲</p>
-                <p className="wp-fact-value">制作（設計・デザイン・コーディング） / ディレクション / 運用・改善・保守</p>
-              </div>
-              <div className="wp-fact">
-                <p className="wp-fact-label">打ち合わせ</p>
-                <p className="wp-fact-value">オンライン可（Zoom、Google Meet 等）</p>
-              </div>
-              <div className="wp-fact">
-                <p className="wp-fact-label">拠点</p>
-                <p className="wp-fact-value">カンボジア（ノマドワーカーとして活動中）</p>
-              </div>
+            <div className="wp-facts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }}>
+              {facts.map((fact, i) => (
+                <div key={fact.label} className="wp-fact-card" style={{
+                  padding: "20px 24px",
+                  background: "var(--wp-surface)",
+                  border: "1px solid var(--wp-line)",
+                  borderRadius: "8px",
+                  transitionDelay: `${350 + i * 50}ms`
+                }}>
+                  <p className="wp-fact-label" style={{ fontSize: "12px", fontWeight: 600, color: "var(--wp-ink-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
+                    {fact.label}
+                  </p>
+                  <p className="wp-fact-value" style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--wp-ink)" }}>
+                    {fact.value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

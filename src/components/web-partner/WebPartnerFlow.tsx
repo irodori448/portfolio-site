@@ -48,42 +48,40 @@ export function WebPartnerFlow() {
   return (
     <section id="wp-flow" className="wp-section" aria-labelledby="wp-flow-heading">
       <div className="wp-container">
-        <div className="wp-grid wp-grid-asym">
-          <div>
-            <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
-              Flow
-            </p>
-            <h2
-              id="wp-flow-heading"
-              className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
-              style={{ transitionDelay: "100ms" }}
-            >
-              ご依頼の流れ
-            </h2>
-            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
-              最初から具体的な依頼内容が決まっていなくても相談できます。<br />
-              現状の整理から一緒に始められます。
-            </p>
-          </div>
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 64px" }}>
+          <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+            Flow
+          </p>
+          <h2
+            id="wp-flow-heading"
+            className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            ご依頼の流れ
+          </h2>
+          <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            最初から具体的な依頼内容が決まっていなくても相談できます。<br />
+            現状の整理から一緒に始められます。
+          </p>
+        </div>
 
-          <div>
-            <div className="wp-steps" role="list">
-              {flowSteps.map((step, i) => (
-                <div
-                  key={step.number}
-                  className={`wp-step wp-fade-up ${visible ? "is-visible" : ""}`}
-                  style={{ transitionDelay: `${300 + i * 100}ms` }}
-                  role="listitem"
-                >
-                  <span className="wp-step-number" aria-hidden="true">
-                    {step.number}
-                  </span>
-                  <h3 className="wp-step-title">{step.title}</h3>
-                  <p className="wp-step-desc">{step.desc}</p>
-                </div>
-              ))}
+        <div className="wp-timeline" role="list">
+          {flowSteps.map((step, i) => (
+            <div
+              key={step.number}
+              className={`wp-timeline-item wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${200 + i * 100}ms` }}
+              role="listitem"
+            >
+              <div className="wp-timeline-marker" aria-hidden="true">
+                <span className="wp-timeline-number">{step.number}</span>
+              </div>
+              <div className="wp-timeline-content">
+                <h3 className="wp-timeline-title">{step.title}</h3>
+                <p className="wp-timeline-desc">{step.desc}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

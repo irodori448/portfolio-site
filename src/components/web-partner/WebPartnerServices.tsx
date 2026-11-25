@@ -57,50 +57,48 @@ export function WebPartnerServices() {
   return (
     <section id="wp-service" className="wp-section" aria-labelledby="wp-service-heading">
       <div className="wp-container">
-        <div className="wp-grid wp-grid-asym">
-          <div>
-            <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
-              Service
-            </p>
-            <h2
-              id="wp-service-heading"
-              className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
-              style={{ transitionDelay: "100ms" }}
-            >
-              支援できる業務
-            </h2>
-            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
-              制作だけでなく、改善・機能追加・運用保守まで。<br />
-              Webサイトに関わる業務を幅広くカバーします。
-            </p>
-            <p className={`wp-body wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms", marginTop: "16px" }}>
-              必要な領域だけを依頼することも、すべてを任せることも可能です。
-            </p>
-          </div>
-
-          <div className="wp-grid wp-grid-3" style={{ gap: "32px" }}>
-            {serviceGroups.map((group, i) => (
-              <div
-                key={group.category}
-                className={`wp-service-group wp-fade-up ${visible ? "is-visible" : ""}`}
-                style={{ transitionDelay: `${400 + i * 100}ms` }}
-              >
-                <h3 className="wp-service-group-title">{group.category}</h3>
-                <ul className="wp-service-items">
-                  {group.items.map((item) => (
-                    <li key={item} className="wp-service-item">
-                      <span className="wp-service-bullet" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 64px" }}>
+          <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+            Service
+          </p>
+          <h2
+            id="wp-service-heading"
+            className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            支援できる業務
+          </h2>
+          <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            制作だけでなく、改善・機能追加・運用保守まで。<br />
+            Webサイトに関わる業務を幅広くカバーします。
+          </p>
+          <p className={`wp-body wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms", marginTop: "24px" }}>
+            必要な領域だけを依頼することも、すべてを任せることも可能です。
+          </p>
         </div>
 
-        <hr className="wp-rule-full" aria-hidden="true" />
-        <p className="wp-caption" style={{ textAlign: "center" }}>
+        <div className="wp-grid wp-grid-3" style={{ gap: "32px" }}>
+          {serviceGroups.map((group, i) => (
+            <div
+              key={group.category}
+              className={`wp-value-card wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${400 + i * 100}ms` }}
+            >
+              <h3 className="wp-value-title">{group.category}</h3>
+              <ul className="wp-service-list">
+                {group.items.map((item) => (
+                  <li key={item} className="wp-service-item">
+                    <span className="wp-service-bullet" aria-hidden="true" />
+                    <span className="wp-service-text">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <hr className="wp-rule-full" aria-hidden="true" style={{ marginTop: "64px" }} />
+        <p className="wp-caption" style={{ textAlign: "center", marginTop: "24px" }}>
           ※ 上記は代表的な業務です。記載のない内容でも、Webに関わることであればまずはご相談ください。
         </p>
       </div>

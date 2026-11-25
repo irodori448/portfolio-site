@@ -29,18 +29,21 @@ export function WebPartnerContact() {
             <h2
               id="wp-contact-heading"
               className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
-              style={{ transitionDelay: "100ms" }}
+              style={{ transitionDelay: "100ms", color: "#FFF" }}
             >
               Webのことで困ったとき、<br />
               まずはご相談ください。
             </h2>
-            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms", color: "rgba(255,255,255,0.8)" }}>
               サイトの更新や修正、リニューアル、WordPressのトラブルなど、<br />
               具体的な依頼内容が決まっていなくても構いません。現在の状況をお聞きし、必要な対応をご提案します。
             </p>
+            <p className={`wp-body wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms", marginTop: "24px", color: "rgba(255,255,255,0.6)" }}>
+              費用感やスケジュールの目安だけ知りたい場合も、お気軽にお問い合わせください。
+            </p>
           </div>
 
-          <div className={`wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms" }}>
+          <div className={`wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "400ms" }}>
             <div className="wp-card-strong" style={{ maxWidth: "520px" }}>
               <ContactForm />
             </div>

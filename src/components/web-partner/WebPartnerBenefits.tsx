@@ -43,7 +43,7 @@ export function WebPartnerBenefits() {
   return (
     <section id="wp-benefits" className="wp-section" aria-labelledby="wp-benefits-heading">
       <div className="wp-container">
-        <div style={{ maxWidth: "720px" }}>
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 64px" }}>
           <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
             Benefits
           </p>
@@ -60,16 +60,18 @@ export function WebPartnerBenefits() {
           </p>
         </div>
 
-        <div className="wp-grid wp-grid-2" style={{ marginTop: "60px", gap: "32px" }}>
+        <div className="wp-grid wp-grid-2" style={{ gap: "32px" }}>
           {benefits.map((b, i) => (
             <article
               key={b.number}
-              className={`wp-benefit wp-fade-up ${visible ? "is-visible" : ""}`}
+              className={`wp-value-card wp-fade-up ${visible ? "is-visible" : ""}`}
               style={{ transitionDelay: `${300 + i * 100}ms` }}
             >
-              <p className="wp-benefit-number">{b.number}</p>
-              <h3 className="wp-benefit-title">{b.title}</h3>
-              <p className="wp-benefit-desc">{b.desc}</p>
+              <p className="wp-number" style={{ color: "var(--wp-accent-gold)", fontWeight: 700 }}>
+                {b.number}
+              </p>
+              <h3 className="wp-value-title" style={{ marginTop: "16px" }}>{b.title}</h3>
+              <p className="wp-value-desc" style={{ marginTop: "12px" }}>{b.desc}</p>
             </article>
           ))}
         </div>

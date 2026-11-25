@@ -47,40 +47,38 @@ export function WebPartnerProblems() {
   return (
     <section id="wp-problems" className="wp-section" aria-labelledby="wp-problems-heading">
       <div className="wp-container">
-        <div className="wp-grid wp-grid-asym">
-          <div>
-            <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
-              Problems
-            </p>
-            <h2
-              id="wp-problems-heading"
-              className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
-              style={{ transitionDelay: "100ms" }}
-            >
-              こんなWebの悩み、<br />
-              抱えていませんか？
-            </h2>
-            <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
-              Web担当者がいない、あるいは十分な時間を割けない企業では、<br />
-              以下のような悩みを抱えているケースが少なくありません。
-            </p>
-            <p className={`wp-body wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms", marginTop: "24px" }}>
-              ひとつでも当てはまるなら、外部Web担当という選択肢が役立つかもしれません。
-            </p>
-          </div>
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 64px" }}>
+          <p className={`wp-eyebrow wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+            Problems
+          </p>
+          <h2
+            id="wp-problems-heading"
+            className={`wp-heading wp-fade-up ${visible ? "is-visible" : ""}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            こんなWebの悩み、<br />
+            抱えていませんか？
+          </h2>
+          <p className={`wp-subheading wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+            Web担当者がいない、あるいは十分な時間を割けない企業では、<br />
+            以下のような悩みを抱えているケースが少なくありません。
+          </p>
+          <p className={`wp-body wp-fade-up ${visible ? "is-visible" : ""}`} style={{ transitionDelay: "300ms", marginTop: "24px" }}>
+            ひとつでも当てはまるなら、外部Web担当という選択肢が役立つかもしれません。
+          </p>
+        </div>
 
-          <div className="wp-problems-grid">
-            {problems.map((p, i) => (
-              <article
-                key={p.title}
-                className={`wp-problem wp-fade-up ${visible ? "is-visible" : ""}`}
-                style={{ transitionDelay: `${400 + i * 80}ms` }}
-              >
-                <h3 className="wp-problem-title">{p.title}</h3>
-                <p className="wp-problem-desc">{p.desc}</p>
-              </article>
-            ))}
-          </div>
+        <div className="wp-grid wp-grid-3">
+          {problems.map((p, i) => (
+            <article
+              key={p.title}
+              className={`wp-value-card wp-fade-up ${visible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${400 + i * 80}ms` }}
+            >
+              <h3 className="wp-value-title">{p.title}</h3>
+              <p className="wp-value-desc">{p.desc}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
