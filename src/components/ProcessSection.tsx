@@ -46,9 +46,9 @@ function PhaseJoin() {
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-band">
+    <section id="process" className="bg-cream">
       <span className="wm" aria-hidden="true">
-        03
+        04
       </span>
       <div className="wrap">
         <div className="motif">

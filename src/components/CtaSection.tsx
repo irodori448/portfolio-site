@@ -11,7 +11,7 @@ export function CtaSection() {
   return (
     <section id="contact" className="cta">
       <span className="wm" aria-hidden="true">
-        07
+        09
       </span>
       <div className="wrap">
         <div className="motif">

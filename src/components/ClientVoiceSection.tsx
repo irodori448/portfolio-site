@@ -47,9 +47,9 @@ const reviews = [
 
 export function ClientVoiceSection() {
   return (
-    <section id="client-voice" className="bg-band">
+    <section id="client-voice" className="bg-cream">
       <span className="wm" aria-hidden="true">
-        05
+        06
       </span>
       <div className="wrap">
         <div className="motif">

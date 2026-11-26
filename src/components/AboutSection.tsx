@@ -4,7 +4,7 @@ export function AboutSection() {
   return (
     <section className="bg-band">
       <span className="wm" aria-hidden="true">
-        05
+        07
       </span>
       <div className="wrap">
         <div className="motif">

@@ -10,7 +10,7 @@ const serviceItems = [
 
 export function WebPartnerSection() {
   return (
-    <section id="web-partner" className="bg-cream">
+    <section id="web-partner" className="bg-band">
       <span className="wm" aria-hidden="true">
         03
       </span>

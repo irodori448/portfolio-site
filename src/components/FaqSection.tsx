@@ -55,7 +55,7 @@ export function FaqSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <span className="wm" aria-hidden="true">
-        06
+        08
       </span>
       <div className="wrap">
         <div className="motif">

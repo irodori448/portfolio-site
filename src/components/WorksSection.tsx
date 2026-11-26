@@ -84,9 +84,9 @@ export function WorksSection() {
 
   return (
     <>
-      <section id="works" className="bg-cream">
+      <section id="works" className="bg-band">
         <span className="wm" aria-hidden="true">
-          04
+          05
         </span>
         <div className="wrap">
           <div className="motif">
