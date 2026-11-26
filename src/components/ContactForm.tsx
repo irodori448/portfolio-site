@@ -12,7 +12,21 @@ export function ContactForm() {
   if (state.status === "success") {
     return (
       <div className="cta-form cf-done" role="status">
-        <p>{state.message ?? "送信しました。ご連絡ありがとうございます。"}</p>
+        <p>{state.message ?? "送信しました。ご連絡ありがとうございます。追ってご連絡します。"}</p>
+        {state.debug && process.env.NODE_ENV !== "production" && (
+          <p style={{ fontSize: "12px", color: "#888", marginTop: "8px" }}>debug: {state.debug}</p>
+        )}
+      </div>
+    );
+  }
+
+  if (state.status === "blocked") {
+    return (
+      <div className="cta-form cf-done" role="alert" style={{ borderColor: "#D88F91" }}>
+        <p>{state.message ?? "送信できませんでした。"}</p>
+        {state.debug && process.env.NODE_ENV !== "production" && (
+          <p style={{ fontSize: "12px", color: "#D88F91", marginTop: "8px" }}>blocked: {state.debug}</p>
+        )}
       </div>
     );
   }

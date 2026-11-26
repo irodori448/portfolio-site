@@ -1,12 +1,14 @@
 "use server";
 
+import { headers } from "next/headers";
 import { checkBotId } from "botid/server";
 import { Resend } from "resend";
 
 export type ContactFormState = {
-  status: "idle" | "success" | "error";
+  status: "idle" | "success" | "error" | "blocked";
   message?: string;
   fieldErrors?: Partial<Record<"name" | "email" | "message", string>>;
+  debug?: string; // デバッグ用：どの経路を通ったか
 };
 
 // Disabled until RESEND_API_KEY is set (see .env.example) — matches the
@@ -23,18 +25,27 @@ export async function submitContactForm(
   _prevState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
+  const hdr = await headers();
+  const userAgent = hdr.get("user-agent") ?? "";
+  const referer = hdr.get("referer") ?? "";
+  const hasHoneypot = !!String(formData.get("website") ?? "").trim();
+
+  // デバッグログ（Vercel Functions ログで確認可能）
+  console.log("[contact] submit", { hasHoneypot, userAgent, referer, hasResendKey: !!process.env.RESEND_API_KEY, hasToEmail: !!process.env.CONTACT_TO_EMAIL });
+
   // Honeypot: a field real visitors never see or fill in. Bots that fill
   // every input in the form will trip it; we pretend success and drop it.
-  if (String(formData.get("website") ?? "").trim()) {
-    return { status: "success", message: "送信しました。ご連絡ありがとうございます。" };
+  if (hasHoneypot) {
+    console.log("[contact] blocked: honeypot triggered");
+    return { status: "blocked", message: "送信できませんでした。", debug: "honeypot" };
   }
 
   // Vercel BotID: invisible client-side challenge (see instrumentation-client.ts).
-  // Same pretend-success handling as the honeypot above, so bots don't learn
-  // which signal tripped.
+  // Returns isBot=true if challenge failed or not completed.
   const { isBot } = await checkBotId();
   if (isBot) {
-    return { status: "success", message: "送信しました。ご連絡ありがとうございます。" };
+    console.log("[contact] blocked: botid flagged as bot", { userAgent });
+    return { status: "blocked", message: "送信できませんでした。しばらくしてから再度お試しください。", debug: "botid" };
   }
 
   const name = String(formData.get("name") ?? "").trim();
