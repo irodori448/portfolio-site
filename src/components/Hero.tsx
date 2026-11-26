@@ -22,7 +22,7 @@ export function Hero() {
               <span className="mk">形にしていく</span>。
             </h1>
             <p className="reveal d2 mt-4 text-[15px] leading-[1.9] text-body lg:mt-[26px] lg:text-[17px] lg:leading-[1.95]">
-              事業理解から、設計・制作・運用まで伴走する Web パートナーです。
+              事業理解から、設計・制作・改善・運用まで伴走する Web パートナーです。
               <br className="hidden lg:block" />
               相談内容が固まっていなくても大丈夫です。
             </p>
