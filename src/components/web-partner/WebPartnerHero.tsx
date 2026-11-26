@@ -38,52 +38,65 @@ export function WebPartnerHero() {
             <hr className="wp-rule" style={{ transitionDelay: "400ms" }} aria-hidden="true" />
           </div>
 
-          {/* Hand-drawn illustration - workspace atmosphere */}
+          {/* Hand-drawn illustration - External Web Partner concept */}
           <div className="wp-hero-visual wp-illustration wp-fade-up" style={{ transitionDelay: "200ms" }} aria-hidden="true">
-            <svg viewBox="0 0 480 400" fill="none" stroke="#1A2340" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.15, maxWidth: "100%", height: "auto" }}>
-              {/* Desk */}
-              <rect x="40" y="280" width="400" height="12" rx="2" fill="#E8E2D6" stroke="#D4C9B8" />
-              <rect x="60" y="260" width="160" height="24" rx="4" fill="#F5EEDC" stroke="#D4C9B8" />
-              <rect x="80" y="264" width="120" height="16" rx="2" fill="#FFF" stroke="#E8E2D6" />
-
-              {/* Monitor */}
-              <rect x="200" y="120" width="220" height="140" rx="4" fill="#1A2340" stroke="#3D4A6B" strokeWidth="2" />
-              <rect x="210" y="130" width="200" height="120" rx="2" fill="#E8EDEB" stroke="none" />
-              <path d="M230 180h140" stroke="#3E7471" strokeWidth="2" opacity="0.5" />
-              <path d="M230 200h100" stroke="#3E7471" strokeWidth="1.5" opacity="0.3" />
-              <path d="M230 220h160" stroke="#3E7471" strokeWidth="1" opacity="0.2" />
-              <circle cx="380" cy="240" r="8" fill="none" stroke="#E62E2E" strokeWidth="2" />
-              <path d="M377 240h6M380 237v6" stroke="#E62E2E" strokeWidth="2" />
-
-              {/* Laptop */}
-              <rect x="60" y="180" width="120" height="80" rx="3" fill="#1A2340" stroke="#3D4A6B" strokeWidth="1.5" />
-              <rect x="70" y="188" width="100" height="64" rx="2" fill="#E8EDEB" stroke="none" />
-              <path d="M80 210h80" stroke="#3E7471" strokeWidth="1.5" opacity="0.5" />
-              <path d="M80 230h60" stroke="#3E7471" strokeWidth="1" opacity="0.3" />
-
-              {/* Coffee mug */}
-              <path d="M300 280c0 8 6 14 14 14h28c8 0 14-6 14-14v-40c0-8-6-14-14-14h-28c-8 0-14 6-14 14v40z" fill="#F5EEDC" stroke="#C2A265" strokeWidth="1.5" />
-              <path d="M342 280c0 8 6 14 14 14h14c8 0 14-6 14-14v-40c0-8-6-14-14-14h-14c-8 0-14 6-14 14v40z" fill="none" stroke="#C2A265" strokeWidth="1.5" />
-              <path d="M356 240h14" stroke="#C2A265" strokeWidth="2" />
-
-              {/* Notebook */}
-              <rect x="60" y="140" width="100" height="36" rx="2" fill="#FFF" stroke="#D4C9B8" strokeWidth="1" />
-              <path d="M70 150h60" stroke="#3E7471" strokeWidth="1" opacity="0.4" />
-              <path d="M70 165h40" stroke="#3E7471" strokeWidth="0.5" opacity="0.2" />
-
-              {/* Plant */}
-              <path d="M40 200c0 20 15 40 35 40" fill="none" stroke="#C2A265" strokeWidth="2" opacity="0.5" />
-              <ellipse cx="75" cy="210" rx="12" ry="8" fill="#C2A265" opacity="0.2" />
-              <ellipse cx="55" cy="195" rx="10" ry="6" fill="#C2A265" opacity="0.15" />
-              <ellipse cx="85" cy="190" rx="8" ry="5" fill="#C2A265" opacity="0.1" />
-
-              {/* Keyboard */}
-              <rect x="60" y="260" width="120" height="14" rx="2" fill="#1A2340" stroke="#3D4A6B" strokeWidth="1" />
-              <rect x="64" y="262" width="112" height="10" rx="1" fill="#1A2340" stroke="none" />
-
-              {/* Mouse */}
-              <ellipse cx="200" cy="270" rx="16" ry="10" fill="#1A2340" stroke="#3D4A6B" strokeWidth="1" />
-              <ellipse cx="200" cy="266" rx="8" ry="4" fill="#3D4A6B" opacity="0.3" />
+            <svg viewBox="0 0 584 500" fill="none" stroke="#1A2340" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.18, maxWidth: "100%", height: "auto" }}>
+              <circle cx="292" cy="238" r="218" fill="#DFE4EE" />
+              <path d="M28 470 Q 150 462 275 469 T 532 468" fill="none" stroke="#1A2340" strokeWidth="4" strokeLinecap="round" opacity=".45" />
+              {/* Browser window */}
+              <rect x="88" y="94" width="336" height="256" rx="16" fill="#FFFFFF" stroke="#1A2340" strokeWidth="6" />
+              <path d="M88 142 H424" stroke="#1A2340" strokeWidth="5" />
+              <circle cx="118" cy="118" r="7" fill="#E62E2E" />
+              <circle cx="146" cy="118" r="7" fill="#1A2340" />
+              <circle cx="174" cy="118" r="7" fill="#CBD4E4" />
+              {/* WordPress circle */}
+              <circle cx="150" cy="202" r="25" fill="#1A2340" />
+              <text x="150" y="212" textAnchor="middle" fontFamily="Archivo, 'Noto Sans JP', sans-serif" fontWeight="800" fontSize="25" fill="#FFFFFF">W</text>
+              <rect x="196" y="180" width="186" height="15" rx="7.5" fill="#CBD4E4" />
+              <rect x="196" y="208" width="138" height="15" rx="7.5" fill="#DFE4EE" />
+              {/* Graph bars */}
+              <rect x="126" y="288" width="26" height="34" rx="4" fill="#CBD4E4" />
+              <rect x="164" y="272" width="26" height="50" rx="4" fill="#1A2340" />
+              <rect x="202" y="256" width="26" height="66" rx="4" fill="#E62E2E" />
+              {/* Shopping bag */}
+              <path d="M306 268 h46 l-5 56 a6 6 0 0 1 -6 5 h-24 a6 6 0 0 1 -6 -5 z" fill="#FFFFFF" stroke="#1A2340" strokeWidth="5" strokeLinejoin="round" />
+              <path d="M318 268 v-8 a11 11 0 0 1 22 0 v8" fill="none" stroke="#1A2340" strokeWidth="5" />
+              {/* Person */}
+              <path d="M428 402 L420 464 M464 402 L474 464" stroke="#1A2340" strokeWidth="10" strokeLinecap="round" />
+              <path d="M404 306 Q446 284 488 306 L496 402 Q446 418 396 402 Z" fill="#1A2340" />
+              <path d="M482 318 L516 256" stroke="#1A2340" strokeWidth="12" strokeLinecap="round" />
+              <path d="M410 320 L378 360" stroke="#1A2340" strokeWidth="12" strokeLinecap="round" />
+              <circle cx="446" cy="264" r="28" fill="#F3C39A" stroke="#1A2340" strokeWidth="5" />
+              <path d="M418 258 a28 28 0 0 1 56 0 l0 -6 a28 20 0 0 0 -56 0 z" fill="#1A2340" />
+              <circle cx="436" cy="266" r="2.6" fill="#1A2340" />
+              <circle cx="456" cy="266" r="2.6" fill="#1A2340" />
+              <path d="M438 278 q8 6 16 0" fill="none" stroke="#1A2340" strokeWidth="3.5" strokeLinecap="round" />
+              {/* Flag */}
+              <path d="M516 258 V192" stroke="#1A2340" strokeWidth="5" strokeLinecap="round" />
+              <path d="M516 194 C 534 185, 552 202, 574 193 L574 228 C 552 237, 534 220, 516 229 Z" fill="#E62E2E" />
+              {/* Speech bubbles */}
+              <g>
+                <rect x="26" y="26" width="204" height="48" rx="24" fill="#FFFFFF" stroke="#1A2340" strokeWidth="5" />
+                <path d="M96 74 l-6 16 l22 -13 z" fill="#FFFFFF" stroke="#1A2340" strokeWidth="4" strokeLinejoin="round" />
+                <text x="128" y="57" textAnchor="middle" fontFamily="'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif" fontWeight="900" fontSize="16" fill="#1A2340">更新をお願いしたい！</text>
+              </g>
+              <g>
+                <rect x="352" y="20" width="188" height="48" rx="24" fill="#FFFFFF" stroke="#1A2340" strokeWidth="5" />
+                <path d="M452 68 l4 16 l20 -14 z" fill="#FFFFFF" stroke="#1A2340" strokeWidth="4" strokeLinejoin="round" />
+                <text x="446" y="51" textAnchor="middle" fontFamily="'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif" fontWeight="900" fontSize="16" fill="#1A2340">商品を追加したい</text>
+              </g>
+              {/* Badge: Update */}
+              <g>
+                <circle cx="92" cy="392" r="31" fill="#FFFFFF" stroke="#1A2340" strokeWidth="5" />
+                <path d="M78 392 a14 14 0 1 1 4 10" fill="none" stroke="#E62E2E" strokeWidth="5" strokeLinecap="round" />
+                <path d="M74 380 l2 13 l13 -4 z" fill="#E62E2E" />
+              </g>
+              {/* Badge: Maintenance/Security */}
+              <g>
+                <circle cx="522" cy="392" r="31" fill="#FFFFFF" stroke="#1A2340" strokeWidth="5" />
+                <path d="M522 372 l16 6 v10 c0 12 -7 19 -16 24 c-9 -5 -16 -12 -16 -24 v-10 z" fill="none" stroke="#1A2340" strokeWidth="5" strokeLinejoin="round" />
+                <path d="M514 392 l6 6 l11 -12" fill="none" stroke="#E62E2E" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+              </g>
             </svg>
           </div>
         </div>
