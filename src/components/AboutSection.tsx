@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function AboutSection() {
   return (
     <section className="bg-band">
@@ -19,7 +21,7 @@ export function AboutSection() {
         </div>
         <h2 className="h2">誰が、やるのか。</h2>
         <div className="about">
-          <div>
+          <div className="about-text">
             <p>
               10年の経験をベースに、要件整理からデザイン・実装・運用までを一貫して引き受けています。
             </p>
@@ -30,23 +32,35 @@ export function AboutSection() {
               制作会社の協力案件から、中小企業の直接のご相談まで対応しています。
             </p>
           </div>
-          <div className="facts">
-            <dl>
-              <dt>経歴</dt>
-              <dd>
-                大学在学中にクラウドソーシングでWeb制作を始める。その後、個人事業主として活動後、Web制作・保守を専門とする企業に参画。ディレクター・エンジニアとして多くのプロジェクトに従事し、現在10年目。
-              </dd>
-              <dt>得意</dt>
-              <dd>要件整理 / WordPress / フロントエンド</dd>
-              <dt>対応</dt>
-              <dd>制作（デザイン・コーディング） / ディレクション / 運用・改善</dd>
-              <dt>打ち合わせ</dt>
-              <dd>オンライン可</dd>
-              <dt>拠点</dt>
-              <dd>
-                カンボジアでノマドワーカーとして活動中。
-              </dd>
-            </dl>
+          <div className="about-side">
+            <div className="about-image" aria-hidden="true">
+              <Image
+                src="/images/icon.png"
+                alt=""
+                width={200}
+                height={200}
+                className="about-profile-image"
+                priority
+              />
+            </div>
+            <div className="facts">
+              <dl>
+                <dt>経歴</dt>
+                <dd>
+                  大学在学中にクラウドソーシングでWeb制作を始める。その後、個人事業主として活動後、Web制作・保守を専門とする企業に参画。ディレクター・エンジニアとして多くのプロジェクトに従事し、現在10年目。
+                </dd>
+                <dt>得意</dt>
+                <dd>要件整理 / WordPress / フロントエンド</dd>
+                <dt>対応</dt>
+                <dd>制作（デザイン・コーディング） / ディレクション / 運用・改善</dd>
+                <dt>打ち合わせ</dt>
+                <dd>オンライン可</dd>
+                <dt>拠点</dt>
+                <dd>
+                  カンボジアでノマドワーカーとして活動中。
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { ServiceSection } from "@/components/ServiceSection";
 import { WebPartnerSection } from "@/components/WebPartnerSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { WorksSection } from "@/components/WorksSection";
+import { ClientVoiceSection } from "@/components/ClientVoiceSection";
 import { AboutSection } from "@/components/AboutSection";
 import { FaqSection } from "@/components/FaqSection";
 import { CtaSection } from "@/components/CtaSection";
@@ -21,6 +22,7 @@ export default function Home() {
         <WebPartnerSection />
         <ProcessSection />
         <WorksSection />
+        <ClientVoiceSection />
         <AboutSection />
         <FaqSection />
         <CtaSection />
